@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
         transaction.replace(R.id.container, secondFragment);
         transaction.commit();
     }
+
     @Override
     public void openFirstFr(int previousNumber) {
         openFirstFragment(previousNumber);
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
     public void openSecondFr(int min, int max) {
         openSecondFragment(min, max);
     }
-
 
 
 }

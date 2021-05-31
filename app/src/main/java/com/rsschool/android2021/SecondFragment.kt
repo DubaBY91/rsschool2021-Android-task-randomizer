@@ -45,8 +45,8 @@ class SecondFragment : Fragment() {
 
     private fun getBack() {
         val interf = activity as FragmentInterface
-        val resul = result?.text.toString().toInt()
-        interf.openFirstFr(resul)
+        val resultat = result?.text.toString().toInt()
+        interf.openFirstFr(resultat)
     }
 
     companion object {

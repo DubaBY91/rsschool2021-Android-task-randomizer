@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class FirstFragment : Fragment() {
@@ -39,10 +40,27 @@ class FirstFragment : Fragment() {
 
 
         generateButton?.setOnClickListener {
-            val min = minValue?.text.toString().toInt()
-            val max = maxValue?.text.toString().toInt()
+            val min = minValue?.text.toString().toIntOrNull()
+            val max = maxValue?.text.toString().toIntOrNull()
             val interf = activity as FragmentInterface
-            interf.openSecondFr(min, max)
+
+            if ((min != null) && (max != null)) {
+                if (min < max) {
+                    interf.openSecondFr(min, max)
+                } else {
+                    Toast.makeText(
+                        activity,
+                        "Введите числа согласно выражения min < max",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } else {
+                Toast.makeText(
+                    activity,
+                    "Введите целые числа",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
